@@ -1,7 +1,7 @@
 # Name
 
 Geometry-based kinetic simulation of DNA-gold nanoparticle motor
-https://github.com/TakanoriHarashima/DNA_NP_motor_simulation/blob/main/DNAmotor_simu_v5.02.py
+https://github.com/TakanoriHarashima/DNA_NP_motor_simulation/blob/main/DNAmotor_simulation_Gillespie_v03.py
 
 # Manuscript
 
