@@ -128,7 +128,7 @@ SIMULATION = True # Run the new simulation
 SUMMERIZE = True # Output rough summary of the simulation
 ```
   
-Here is the parameter set for the simulation-based fitting shown in Supplementary Fig. 12-19.
+Here is the parameter set for the simulation-based fitting shown in Supplementary Fig. ***12-19***.
 ```
 # Basic parameters
 globalfol = r'Directory\to\perform\DNAmotor\simulation'
