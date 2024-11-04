@@ -5,8 +5,7 @@ https://github.com/TakanoriHarashima/DNA_NP_motor_simulation/blob/main/DNAmotor_
 
 # Manuscript
 
-bioRxiv: https://www.biorxiv.org/content/10.1101/2024.05.23.595615v2
-
+Rational engineering of DNA-nanoparticle motor with high speed and processivity comparable to motor proteins (under revision)
 
 # Features
 
