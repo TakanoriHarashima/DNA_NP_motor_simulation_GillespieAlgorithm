@@ -9,7 +9,7 @@ bioRxiv: https://www.biorxiv.org/content/10.1101/2024.05.23.595615v2
 
 # Features
 
-Details of the algorithm and description of the simulation parameters are referred in the manuscript (https://www.biorxiv.org/content/10.1101/2024.05.23.595615v2). First, a two-dimensional pixel matrix was defined to model the RNAs on the glass surface. Pixel size was normalized by the DNA density on the AuNP. RNAs were randomly distributed with a ratio of the RNA density to the DNA density. Reaction at a single RNA site is assumed to contain three sequential elementary steps: DNA/RNA hybridization, RNase H binding to DNA/RNA duplex, and RNA hydrolysis. The reaction proceeds within the accessible area of DNA with the radius of 28.0 nm. Rate constants of the three elementary steps, konDNA/RNA, k E, and kcatE are the simulation parameters. ***Simulation steps proceeded in units of reaction events. The reaction site and time step is determined based on Gillespie algorithm.*** Constraint of the motor position was considered by introducing mobile region of each DNA/RNA hybrid (25.2 nm). The motor position was determined randomly within the region where all mobile regions overlap. Unless all mobile regions overlapped, the motor position was fixed. 
+Details of the algorithm and description of the simulation parameters are referred in the manuscript (https://www.biorxiv.org/content/10.1101/2024.05.23.595615v2). First, a two-dimensional pixel matrix was defined to model the RNAs on the glass surface. Pixel size was normalized by the DNA density on the AuNP. RNAs were randomly distributed with a ratio of the RNA density to the DNA density. Reaction at a single RNA site is assumed to contain three sequential elementary steps: DNA/RNA hybridization, RNase H binding to DNA/RNA duplex, and RNA hydrolysis. The reaction proceeds within the accessible area of DNA with the radius of 28.0 nm. Rate constants of the three elementary steps, konDNA/RNA, k E, and kcatE are the simulation parameters. Simulation steps proceeded in units of reaction events. ***The reaction site and time step is determined based on Gillespie algorithm.*** Constraint of the motor position was considered by introducing mobile region of each DNA/RNA hybrid (25.2 nm). The motor position was determined randomly within the region where all mobile regions overlap. Unless all mobile regions overlapped, the motor position was fixed. 
 
 # Environment Tested
   - Windows 10 Pro  
@@ -48,7 +48,7 @@ Whole installation procedure typically takes ~1 hour on a normal desktop compute
     
 **4. Run the simulation:**  
   - Download 	***DNAmotor_simulation_Gillespie_v03.py*** from Github.
-  - Spyder -> File -> Open -> Select DNAmotor_simu_v5.03.py
+  - Spyder -> File -> Open -> Select DNAmotor_simulation_Gillespie_v03.py
   - Set parameters.
   - Run File (push F5 key) and simulation starts.
 
@@ -62,13 +62,13 @@ globalfol = r'Directory\to\perform\DNAmotor\simulation'
 date = 'DATE'
 RNA_size = 2000                        # Full range of RNA substrate (px)  (default:2000)
 tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:100000)
-N_simu = 3                             # Nunber of trajectory generate 
+N_simu = 3                             # Nunber of trajectory generate (default:5)
 frame_per_event = 1000                 # Span frame to check the progress of simulation (default:1000)
 foli=0                                 # ID of the condition of kinetic parameters (default:0)
 # Kinetic parameters
-khyb_list = np.array([0.3])                  # DNA/RNA Hybridization rate [s-1]
+khyb_list = np.array([0.2])                  # DNA/RNA Hybridization rate [s-1]　
 konE_list = np.array([1.0]) *10**6           # RNase H binding rate [M-1 s-1]
-kcat_list = np.array([4])                    # RNA hydrolysis rate [s-1] 
+kcat_list = np.array([3])                    # RNA hydrolysis rate [s-1] 
 RNaseH_list = np.array([36])                 # RNase H condition [nM]
 #######################
 SIMULATION = True # Run the new simulation
@@ -108,7 +108,7 @@ MAKE_MOVIE = True   # If True, the program concatenate the images by ffmpeg.
 This program make the image of snapshot and concatenate them into the mp4 movie (see Supplementary Movie 4,5,6,7).
 
 # Reproduction instructions  
-Here is the parameter set for our simulation shown in Figure 2.  
+Here is the parameter set for our simulation shown in Figure ***3***.  
 ```
 # Basic parameters
 globalfol = r'Directory\to\perform\DNAmotor\simulation'
@@ -119,9 +119,9 @@ N_simu = 50                             # Nunber of trajectory generate
 frame_per_event = 1000                 # Span frame to check the progress of simulation (default:1000)
 foli=0                                 # ID of the condition of kinetic parameters (default:0)
 # Kinetic parameters
-khyb_list = np.array([0.3])                  # DNA/RNA Hybridization rate [s-1]
+khyb_list = np.array([0.2])                  # DNA/RNA Hybridization rate [s-1]　
 konE_list = np.array([1.0]) *10**6           # RNase H binding rate [M-1 s-1]
-kcat_list = np.array([4])                    # RNA hydrolysis rate [s-1] 
+kcat_list = np.array([3])                    # RNA hydrolysis rate [s-1] 
 RNaseH_list = np.array([36,144,360,720,1440,3600,7200])                 # RNase H condition [nM]
 #######################
 SIMULATION = True # Run the new simulation
@@ -140,8 +140,8 @@ frame_per_event = 1000                 # Span frame to check the progress of sim
 foli=0                                 # ID of the condition of kinetic parameters (default:0)
 # Kinetic parameters
 khyb_list = np.array([0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 1.0, 5.0])                  # DNA/RNA Hybridization rate [s-1]
-konE_list = np.array([0.5, 1.0, 1.5, 2.0, 2.5]) *10**6           # RNase H binding rate [M-1 s-1]
-kcat_list = np.array([0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0])                    # RNA hydrolysis rate [s-1] 
+konE_list = np.array([0.1, 0.5, 1.0, 1.5, 2.0, 2.5, 5.0]) *10**6           # RNase H binding rate [M-1 s-1]
+kcat_list = np.array([0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 8.0, 10.0])                    # RNA hydrolysis rate [s-1] 
 RNaseH_list = np.array([36,144,360,720,1440,3600,7200])                 # RNase H condition [nM]
 #######################
 SIMULATION = True # Run the new simulation
