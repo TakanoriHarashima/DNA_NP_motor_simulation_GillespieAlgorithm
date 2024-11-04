@@ -5,7 +5,7 @@ https://github.com/TakanoriHarashima/DNA_NP_motor_simulation/blob/main/DNAmotor_
 
 # Manuscript
 
-Rational engineering of DNA-nanoparticle motor with high speed and processivity comparable to motor proteins (under revision)
+Takanori Harashima, Akihiro Otomo, and Ryota Iino, Rational engineering of DNA-nanoparticle motor with high speed and processivity comparable to motor proteins (under revision)
 
 # Features
 
