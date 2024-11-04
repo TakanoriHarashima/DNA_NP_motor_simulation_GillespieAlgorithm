@@ -47,7 +47,7 @@ Whole installation procedure typically takes ~1 hour on a normal desktop compute
     ```pip install -r requirements.txt```
     
 **4. Run the simulation:**  
-  - Download DNAmotor_simu_v5.02.py from Github.
+  - Download 	***DNAmotor_simulation_Gillespie_v03.py*** from Github.
   - Spyder -> File -> Open -> Select DNAmotor_simu_v5.03.py
   - Set parameters.
   - Run File (push F5 key) and simulation starts.
