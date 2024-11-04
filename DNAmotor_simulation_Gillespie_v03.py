@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Apr 28 18:46:59 2022
-
+Created on Mon Nov  4 13:01:21 2024
 @author: Takanori Harashima 
 email : harashima@ims.ac.jp
 """
@@ -47,9 +46,7 @@ def round_sig(x, sig):
     except:
         return x
 def MEMORY_RELEASE():    
-    #メモリ解放処理
     gc.collect()
-    #メモリ使用量を確認　→　90%以上だったらプログラムを強制終了させる
     mem_using = psutil.virtual_memory().percent
   #  print('Using '+ str(mem_using) + '% memory')
     if mem_using > 90:
@@ -78,45 +75,13 @@ def COLOR_LINE_PLOT(x,y,c,AX):
 plt.rcParams.update(plt.rcParamsDefault)
 plt.rcParams['axes.axisbelow'] = True
 plt.rcParams["image.interpolation"] = "none"
-plt.rcParams['font.family'] = 'Arial' #全体のフォントを設定
-plt.rcParams['font.size'] = 16 #フォントサイズを設定
-plt.rcParams['axes.titlesize'] = 16 #フォントサイズを設定
+plt.rcParams['font.family'] = 'Arial' 
+plt.rcParams['font.size'] = 16 
+plt.rcParams['axes.titlesize'] = 16 
 plt.rcParams['lines.linewidth'] = 1 
 #plt.rcParams['axes.xmargin'] = 0
 #plt.rcParams['axes.ymargin'] = 0
 
-#　v1.02 : 複数の軌跡をto_pickleで保存して、saveした軌跡をまとめて表示する。MSDプロットも試作
-#　v1.03 : detachmentを定義
-# v1.04 : リソ基板で同様のことをやってみる
-# v1.05 : MSDプロットを算出、シミュレーション過程をgifで出力,DNA表面を球状に修正
-# v1.06 : net_displacemnt, fraction_boundを算出する
-# v1.06 : enzyme_countはDNA-RNA hybridが解離前の場合結合させない
-# v1.07 : kmeltの定義を修正　　酵素による加水分解"前"のDNARNAhybridの開裂　→　酵素による加水分解"後"の開裂　
-# v1.08 : motorを円形にした。移動可能範囲は、各DNA/RNA hybridの形成点を中心とする円がすべて重なる領域として、その中で移動させた。
-# v1.09 : 移動可能範囲の決定部分でRNAsizeでやっていた部分をDNAsizeのみにする。プログラムの高速化
-# v1.10 : でかいエラー処理ができた！DNAモーターの範囲内のRNAはすべてDNAとハイブリした状態を初期状態として開始するようにした。
-# v1.10 : 1トレース計算したらトラジェクトリをcsvファイルに毎回出力する
-# v1.10 : gif出力の場合も図にカラーバーをちゃんと入れるようにする
-# v1.11 : リソ基板の設定を適用した。帯状のパターンをまっすぐ走ったよー！
-# v1.12 : net displacementと速度換算の時に距離を実空間変換する
-# v1.12 : ガチ計算用にparameterセットのcsvを吐き出すようにした
-
-# v1.17 : imagemagickを用いてgif動画を見やすくした
-# v1.18 : gif動画にトラジェクトリを別表示、重心移動可能領域の描画を行う, debagモードをデフォルトにした。ani.saveは使わずsubprocess.Popenのほうがプログラムが速い (imagemagickはインストール後、環境変数にパスを通さないとよくわかんないエラーを吐くので注意！)
-# v1.19 体裁変更、全部のfigureのzoom倍率を等しくした。
-# v1.20 表示するgif動画の原点をゼロにするようラベルをいじった 
-
-# v2.5: 最初の状態を全DNA結合ではなく、一個だけ結合からスタート
-# v3.01 : total run time のsurvival plotからdetachまでの寿命を計算する
-# v3.03 : MSDの計算方法を修正
-# v3.04 : Nboundだけでなく、accessible範囲内のサイトの状態を各frame算出、
-# v3.04 : 最終的なbefore afterのRNaseHの二次元分布を保存する
-# v3.05 : hydrolysed siteをemptyと分ける
-# v3.10 : gifをaviで出力(framerateが設定可能)
-# v3.10 : color tableを変更（empty siteを白）
-# v3.10 : DNA stateを廃止、ズームしたRNA状態を表示するようにした
-# v3.11 : 状態分布をnmスケールで表示する
-# v3.11 : 1000eventごとに表面の状態分布をgzファイルに出力
 
 ###############################################################################
 
@@ -199,11 +164,8 @@ print ("DNA_size",DNA_size)
 ############################# variable parameters ############################# 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ###############################################################################
-
 # Basic parameters
 globalfol = r'Directory\to\perform\DNAmotor\simulation'
-globalfol = r'G:\マイドライブ\ronbun\DNAmotor\241103_GitHub_upload'
-
 date = 'DATE'
 RNA_size = 2000                        # Full range of RNA substrate (px)  (default:2000)
 tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:100000)
