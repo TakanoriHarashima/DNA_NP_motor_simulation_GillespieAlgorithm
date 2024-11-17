@@ -81,7 +81,7 @@ Push F5 key to run the simulation.
 **3. Expected output:**  
 The simulation make folders as follow.  
 <pre>
-001_khyb=0.30_kcatE=4.0_konE=1.0x106.
+001_khyb=0.20_kcatE=3.0_konE=1.0x106.
 └─DATE_{'N_simu'= 3, 'tmax'= 100000, 'RNaseH'= 36, 'frame_per_event'= 1000}
     └─progress
         ├─000
